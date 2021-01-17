@@ -82,6 +82,7 @@ class Solution(object):
 
         return False
 
+# shortest way
     def hasCycle(self, head):
         slow = head
         fast = head

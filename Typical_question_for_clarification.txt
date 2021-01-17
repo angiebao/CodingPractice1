@@ -1,0 +1,24 @@
+1. for numbers:
+negative number/positive number
+
+2. for strings:
+special characters
+could be either lower or upper case
+
+3. what if not found, what to return
+
+4. could use extra space or not
+
+5. can change the existing array/matrix or not
+
+6. if possible, say the time complexity,
+ask if this is what they want. or try to provide a better solution with low time complexity
+
+7. for trees:
+    Binary search tree?
+    Parent pointer? - lowest common ancestor
+    Node type - int?
+    N-ary?
+    Complete? Balanced?
+
+8.

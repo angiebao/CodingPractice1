@@ -1,0 +1,32 @@
+graph
+while q:
+    --是否需要更新结果---
+    size = len(q)
+    //遍历这一层距离为一的
+    for i in range(size):
+        cur = q.popleft()
+        for 遍历 neighbors/chil:
+            更新 x y
+            如果x y 满足条件 且 没有visit过
+                q.append
+                更新visited
+
+tree
+while q:
+    --是否需要更新结果---
+    size = len(q)
+    //遍历这一层
+    for i in range(size):
+        cur = q.popleft
+        更新结果
+
+        #遍历两个child：
+        #如果 child满足条件
+        if curr.left:
+            q.append(curr.left)
+        if curr.right:
+            q.append(curr.right)
+
+
+
+

@@ -38,6 +38,23 @@ class Solution:
             curr = nextNode       # move next, let the current be the next
         return prev
 
+#    public ListNode reverseList(ListNode head) {
+    #        if (head == null || head.next == null) {
+    #            return head;
+    #        }
+    #        ListNode dummy = new ListNode(0);
+    #        dummy.next = head;
+    #        ListNode prev = head;
+    #        ListNode curr = prev.next;
+    #        while (curr != null) {
+    #            prev.next = curr.next;
+    #            curr.next = dummy.next;
+    #            dummy.next = curr;
+    #            curr = prev.next;
+    #        }
+    #        return dummy.next;
+    #    }
+
     def reverseList(self, head:ListNode) -> ListNode:     # space (N), because would go n level deep, time: O(N)
         if head == None or head.next == None: return head
         p = self.reverseList(head.next)

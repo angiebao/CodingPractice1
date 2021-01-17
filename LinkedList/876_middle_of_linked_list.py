@@ -1,3 +1,19 @@
+# class Solution {
+#     public ListNode middleNode(ListNode head) {
+#         ListNode slow = head;
+#         ListNode fast = head;
+#         while (fast != null && fast.next != null) {
+#             slow = slow.next;
+#             fast = fast.next.next;
+#         }
+#         return slow;
+#     }
+# }
+
+# 2>3>3>2
+# return first 3
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -14,7 +30,6 @@ class Solution:
 
         while current and current.next:
             current = current.next.next
-
             half = half.next
 
         return half
