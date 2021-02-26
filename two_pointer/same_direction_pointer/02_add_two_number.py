@@ -68,10 +68,3 @@ class Solution(object):
 #    }
 # }
 
-def addTwoNumber(l1,l2):
-    iterhead = ListNode(0)
-    dummy  = iterhead
-    while l1 or l2 or carry !=0:
-        val1 = l1.val  if l1 else 0
-        val2 = l2.val if l2 else 0
-        sum =

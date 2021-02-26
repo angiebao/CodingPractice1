@@ -1,24 +1,23 @@
-
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
+#
+# class SinglelyLinkedList:
+#     def __int__(self):
+#         self.tail = None
+#
+#     def append(self, data):
+#         node = ListNode.data
+#         if self.head:
+#             self.head.next = node
+#             self.head = node
+#
+#         else:
+#             self.tail = node
+#             self.head = node
 
-class SinglelyLinkedList:
-    def __int__(self):
-        self.tail = None
-
-    def append(self, data):
-        node = ListNode.data
-        if self.head:
-            self.head.next = node
-            self.head = node
-
-        else:
-            self.tail = node
-            self.head = node
-
-
+# method 1 - hash
 class Solution(object):
     def hasCycle_n2(self, head): # search fucntion, time complexity is O(n^2), because for each element, we need to search
 
@@ -52,6 +51,7 @@ class Solution(object):
 
         return rtype
 
+# method 2 two pointer
     # space complexity if O(2)=O(1), with a cycle, Time complexity is O(N), without a cycle, Time complexity is O(N+K) = O(N)
     # N is the non-cycle lenght, K is the cycle length,
 

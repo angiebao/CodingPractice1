@@ -9,7 +9,10 @@
 
 # 4.有向/无向
 # 5.有环/无环 : topology sort,
-#     DAG directed acyclic graph 有向无环图 , tree?
+#     DAG directed acyclic graph 有向无环图 , not necessarily tree
+#     tree: 1. one root, 2.  each node has one parent(except root), 3. no cycle
+#           in practice: 1. number of nodes == number of edges + 1;
+# #                      2. all nodes connected
 #     use BFS: node indegree ==0 to put in queue
 
 # 6.静态图 static connectivity: number of island not change

@@ -235,68 +235,37 @@
 #    }
 # }
 
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+"""
+    serialize
+       1
+       2  3
+          4 5
+    [1, 2,  # , #,  3, 4,#, #, 5, #, #]
+     Tree node-> left, right, val
 
-class Codec:
-'''
-   1
-   2  3
-      4 5
-[1, 2,  # , #,  3, 4,#, #, 5, #, #]
- Tree node-> left, right, val
+    Q[  # ,#,4,5]
+        Res
 
-Q[  # ,#,4,5]
-    Res
+    Root = TreeNode(1)
+    Res = [1]
 
-Root = TreeNode(1)
-Res = [1]
+    Root = TreeNode(2)
+    Res = [1, 2]
 
-Root = TreeNode(2)
-Res = [1, 2]
+    Root = none
+    Res = [1, 2 ，  # ]
 
-Root = none
-Res = [1, 2 ，  # ]
+    Root = none
+    Res = [1, 2,  # , #]
 
-Root = none
-Res = [1, 2,  # , #]
+           Root = 3
+    Res = [1, 2,  # , #, 3]
 
-       Root = 3
-Res = [1, 2,  # , #, 3]
+           Root = 4
+    Res = [1, 2  # ， #, 4 ]
 
-       Root = 4
-Res = [1, 2  # ， #, 4 ]
-'''
-def serialize(self, root):
-        """Encodes a tree to a single string.
+deserialize
 
-        :type root: TreeNode
-        :rtype: str
-        """
-        sb = []
-        self.ser_helper(root, sb)
-        return "".join(sb)
-
-    def ser_helper(self, root, sb):
-        if root is None:
-            if len(sb) > 0:
-                sb.append(",")
-            # "#" is represented as a none node
-            sb.append("#")
-            return
-        if len(sb) > 0:
-            # "," is used to split the string later
-            sb.append(",")
-
-        sb.append(str(root.val))
-        self.ser_helper(root.left, sb)
-        self.ser_helper(root.right, sb)
-
-'''
     Res = [1, 2,  # , #,  3, 4,#, #, 5, #, #]
 
            q = 1
@@ -317,11 +286,42 @@ def serialize(self, root):
 
 right
 Cur = 3, q = 4  # # 5 # #
+"""
+
+import collections
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
-'''
+class Codec:
+    def serialize(self, root):
+        """Encodes a tree to a single string.
 
-def deserialize(self, data):
+        :type root: TreeNode
+        :rtype: str
+        """
+        sb = []
+        self.ser_helper(root, sb)
+        return "".join(sb)
+
+    def ser_helper(self, root, sb):
+        if root is None:
+            if len(sb) > 0:
+                sb.append(",")
+            sb.append("#")
+            return
+        if len(sb) > 0:
+            sb.append(",")
+
+        sb.append(str(root.val))
+        self.ser_helper(root.left, sb)
+        self.ser_helper(root.right, sb)
+
+
+    def deserialize(self, data):
         """Decodes your encoded data to tree.
 
         :type data: str
@@ -331,6 +331,7 @@ def deserialize(self, data):
         q = collections.deque(data.split(","))
         node = self.deser_helper(q)
         return node
+
 
     def deser_helper(self, q):
         curr = q.popleft()

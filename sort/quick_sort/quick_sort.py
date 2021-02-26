@@ -42,6 +42,8 @@ class Solution:
         temp = A[i]
         A[i] = A[j]
         A[j] = temp
+
+
 S=Solution()
 S.quick_sort(l, 0 , len(l) - 1 )
 print(l)
@@ -77,3 +79,52 @@ print(l)
 #     vartemp = arr[i];
 #     arr[i] = arr[j];
 #     arr[j] = temp;
+
+##-------------------------------------------------------------------
+# seond way to write partition
+
+# public class Solution {
+#     /**
+#      * @param A: an integer array
+#      * @return: nothing
+#      */
+#     public int[] sortArray(int[] nums) {
+#         // write your code here
+#         quickSort(nums, 0, nums.length - 1);
+#         return nums;
+#     }
+#
+#     private void quickSort(int[] nums, int start, int end) {
+#         if (start >= end) {
+#             return;
+#         }
+#         int mid = partition(nums, start, end);
+#         quickSort(nums, start, mid - 1);
+#         quickSort(nums, mid + 1, end);
+#     }
+#
+#     private int partition(int[] nums, int start, int end) {
+#         int pivot = nums[start];
+#         int i = start + 1;
+#         int j = end;
+#         while (i <= j) {
+#             while (i <= j && nums[i] <= pivot) {
+#                 i++;
+#             }
+#             while (i <= j && nums[j] > pivot) {
+#                 j--;
+#             }
+#             if (i > j) {
+#                 break;
+#             }
+#             int temp = nums[i];
+#             nums[i] = A[j];
+#             nums[j] = temp;
+#             j--;
+#             i++;
+#         }
+#         nums[start] = nums[j];
+#         nums[j] = pivot;
+#         return j;
+#     }
+# }
