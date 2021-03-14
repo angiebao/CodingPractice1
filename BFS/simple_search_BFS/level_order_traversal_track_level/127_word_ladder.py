@@ -36,7 +36,7 @@
 # class Solution:
 #     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
 #
-#         # use a intermediate state h*t, *it , hi*, store all the combination in a dictionary
+#         # use a intermediate state h*t, *it , hi*, store all the combination_path_finding in a dictionary
 #         # first store the begin word in the queue, make a dictionary to story the visited words
 #         if endWord not in wordList:  # or not endWord or not beginWord or not wordList:
 #             return 0
