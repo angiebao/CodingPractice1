@@ -76,45 +76,35 @@
 #    }
 #
 
-def numIslands_bfs(self, grid):
-    # use breadth first search, search for value 1, if it reaches the boundary,
-    # then put a flag that this is not an island
-    # time complexity O(M*N) = O(nx*ny), space O(nx ), the worst case senario, there are 2*nx node in queue
-    if len(grid) == 0:
-        return 0
-    nx = len(grid)  # number of rows
-    ny = len(grid[0])  # number of columns
-    directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-    q = collections.deque()
-    island_count = 0
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        nr = len(grid)
+        nc = len(grid[0])
+        if nr == 0 or nc == 0:
+            return 0
+        count = 0
+        self.grid = grid
+        self.visited = [[False for i in range(nc)] for j in range(nr)]
 
-    for i in range(nx):
-        for j in range(ny):
-            # print ("index x %d and index y %d" %(i, j))
-            if grid[i][j] == '1':
-                q.append(Node(i, j))
-                grid[i][j] = 0
-                island_count += 1
+        for i in range(nr):
+            for j in range(nc):
+                if self.grid[i][j] == '1' and self.visited[i][j] == False:
+                    self.visited[i][j] = True
+                    self.bfs(i, j, nr, nc)
+                    count += 1
 
-            while (len(q) > 0):
-                cur = q.popleft()
+        return count
 
-                for neighbor in range(4):
-                    xi, yi = cur.x + directions[neighbor][0], cur.y + directions[neighbor][1]
-                    if xi >= 0 and xi < nx and yi >= 0 and yi < ny and grid[xi][yi] == '1':
-                        grid[xi][yi] = 0
-                        q.append(Node(xi, yi))
+    def bfs(self, i, j, nr, nc):
+        q = collections.deque()
+        q.append((i, j))
 
-#
-#    private void dfs(char[][] grid, int m, int n, int i, int j, boolean[][] visited) {
-#        if (i < 0 || j < 0 || i >= m || j >= n || visited[i][j] || grid[i][j] != '1') {
-#            return;
-#        }
-#        visited[i][j] = true;
-#        for (int[] dir : Util.dirs) {
-#            int x = i + dir[0];
-#            int y = j + dir[1];
-#            dfs(grid, m, n, x, y, visited);
-#        }
-#    }
-# }
+        while q:
+            cur = q.popleft()
+            for direction in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                x, y = cur[0] + direction[0], cur[1] + direction[1]
+                if 0 <= x < nr and 0 <= y < nc and self.grid[x][y] == '1' and not self.visited[x][y]:
+                    self.visited[x][y] = True
+                    q.append((x, y))
+
+

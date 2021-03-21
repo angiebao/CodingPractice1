@@ -146,7 +146,6 @@ class Solution(object):
         :type node: Node
         :rtype: Node
         """
-        clone = None
         if not node:
             return node
         visited = dict()
@@ -160,7 +159,7 @@ class Solution(object):
                 if neighbor not in visited:
                     visited[neighbor] = Node(neighbor.val)
                     queue.append(neighbor)
-
+                # connect the node to its neighbors no matter the neighbor is visted or not
                 visited[cur].neighbors.append(visited[neighbor])
 
         return visited[node]

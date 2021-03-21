@@ -1,6 +1,9 @@
 
 # Graph
 #
+#Format: Adjacency list: [[2,4],[1,3],[2,4],[1,3]]
+#
+#
 # 套路
 # 1. Find number of connected components: time O(V+ E) , O(n^2 + n), O(n^2) to build map, becuase of n(n-1) edges to loop through?
 # 2. Cycle detection : topological sort tdo determine if there is cycle
