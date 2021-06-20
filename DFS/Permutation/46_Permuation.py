@@ -19,7 +19,7 @@
 # sorted?
 # numbers being positive
 # duplicate numbers
-tHANK
+
 # list to remove an eliement  is \
 # list.remove(element)
 # time complexity is O(n)

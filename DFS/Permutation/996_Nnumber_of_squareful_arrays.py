@@ -44,3 +44,37 @@
 #        return val == Math.floor(val);
 #    }
 # }
+
+class Solution:
+    def numSquarefulPerms(self, A: List[int]) -> int:
+        self.count = 0
+        self.n = len(A)
+        A.sort()
+        cur = []
+        self.res = []
+        visited = [False for i in range(self.n)]
+        self.helper(A, cur, visited)
+        return len(self.res)
+
+    def helper(self, A, cur, visited):
+        if len(cur) == len(A):
+            self.res.append(cur[:])
+            return
+
+        itr = iter(range(self.n))
+        for i in itr:
+
+            if len(cur) == 0 or (not visited[i] and self.isValid(cur[-1], A[i])):
+                visited[i] = True
+                cur.append(A[i])
+                self.helper(A, cur, visited)
+                cur.pop()
+                visited[i] = False
+                while i + 1 < self.n and A[i + 1] == A[i]:
+                    i += 1
+                    next(itr)
+
+    def isValid(self, x, y):
+
+        z = math.sqrt(x + y)
+        return z == math.floor(z)

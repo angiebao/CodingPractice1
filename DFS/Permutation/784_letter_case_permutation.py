@@ -22,3 +22,23 @@
 #
 # Input: S = "0"
 # Output: ["0"]
+
+
+class Solution:
+    def letterCasePermutation(self, S: str) -> List[str]:
+        res = []
+        self.helper(list(S), 0, res)
+        return res
+
+    def helper(self, chars, index, res):
+        if index == len(chars):
+            res.append("".join(chars))
+            return
+        if chars[index].isnumeric():
+            self.helper(chars, index + 1, res)
+
+        else:
+            chars[index] = chars[index].lower()
+            self.helper(chars, index + 1, res)
+            chars[index] = chars[index].upper()
+            self.helper(chars, index + 1, res)
