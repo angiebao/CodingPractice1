@@ -1,5 +1,9 @@
 
 
+
+
+
+
 #    public static void main(String[] args) {
 #        Q_0996_Number_of_Squareful_Arrays solution = new Q_0996_Number_of_Squareful_Arrays();
 #        int[] A1 = {1,17,8};
