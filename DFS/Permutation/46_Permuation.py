@@ -66,7 +66,7 @@
 # }
 
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums):# nums: : List[int], return: List[List[int]]:
         res = []
 
         visited = [False for i in range(len(nums))]
@@ -135,12 +135,12 @@ def helper(self, nums, visited, temp, res):
         if not visited[i]:
             temp.append(nums[i])
             visited[i] = True
-            self.helper(nums, visited, temp, res):
+            self.helper(nums, visited, temp, res)
             # back tracking
             visited[i] =  False
             temp.pop()
             # skip this level and start from the next number
-            while i < len(nums) and nums[i] = nums[i+1]:
+            while i < len(nums) and nums[i] == nums[i+1]:
                 next(itr)
                 i+=1
 
