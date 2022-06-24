@@ -85,7 +85,7 @@ from collections import Counter, defaultdict
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
-        candidates.sort()
+        # candidates.sort()
         self.helper(candidates, target, 0, 0, [], res)
         return res
 
@@ -104,4 +104,28 @@ class Solution:
 
 # can use once or multiple times
 # sort or not, sort can help reduce time complextity, for example,
+# if the sum already exceeded target, the rest elemet does not need to try out?
+
+# sort version:
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        curr = []
+        res = []
+        start = 0
+        candidates.sort()
+        # does not need visited because each word can be used multiple times.
+        self.dfs(start, curr, res, target, candidates)
+        return res
+
+    def dfs(self, start, curr, res, target, candidates):
+
+        if sum(curr) == target:
+            res.append(curr[:])
+
+        for i in range(start, len(candidates)):
+            if sum(curr) + candidates[i] > target:
+                return
+            curr.append(candidates[i])
+            self.dfs(i, curr, res, target, candidates)
+            curr.pop()
 

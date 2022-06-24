@@ -27,25 +27,33 @@
 # 			clone graph
 # 			binary level order
 # 	II:最短路径的
-# 			shortest path in matrix
-# 			rotten orange
-# 			word ladder (interface get_next())
-# 			open the lock
-# 			walls and gates (多起点的)
+#           找到一个最短路径
+#               open the lock
+#           最短路径的长度：
+# 			    shortest path in binary matrix
+# 			    rotten orange
+# 			    word ladder (interface get_next())
+#           找到所有最短路径
+# 			    word ladder 2
+#           多起点的：
+# 			    walls and gates
 # 	III:拓扑排序
 # 			course schedule
 #
 # part 4: dfs
 # 	I:单纯的遍历
+# 			number of islands
+# 			clone graph
 # 	II:分治法
 # 			binary tree
-# 	III:找路径的
+# 	III:找路径的(backtracking)
 # 			binary tree path
 # 			word search
 # 			phone number
-# 	IV:组合类的问题
+# 	IV:组合类的问题(backtracking)
 # 		subset
 # 		combination sum
+#       phone number
 # 	V:排列类型的问题
 # 		permutation
 # 		n queen

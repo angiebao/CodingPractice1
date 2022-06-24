@@ -102,47 +102,54 @@ class Solution:
 # Visited =
 # [F,F,F] -> [T,F,F] -> [T,T,F]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# time complexity O（n!） , n factorial
+# time complexity O（n!） , n factorial, first level:N, second level: N-1,.... last level 1, so N!
 #
 
-def permutation(self, nums):
-    res = []
-    temp = []
-    visited = [False for i in range(nums)]
-    nums.sorted()
-    self.helper(nums, visited, temp, res)
+# def permutation(self, nums):
+#     res = []
+#     temp = []
+#     visited = [False for i in range(nums)]
+#     nums.sorted()
+#     self.helper(nums, visited, temp, res)
+#
+# def helper(self, nums, visited, temp, res):
+#
+#     if  len(temp) == len(nums):
+#         res.append(temp[:])
+#
+#     itr = iter(range(len(nums)))
+#     for i in itr:
+#         if not visited[i]:
+#             temp.append(nums[i])
+#             visited[i] = True
+#             self.helper(nums, visited, temp, res)
+#             # back tracking
+#             visited[i] =  False
+#             temp.pop()
+#             # skip this level and start from the next number
+#             while i < len(nums) and nums[i] == nums[i+1]:
+#                 next(itr)
+#                 i+=1
 
-def helper(self, nums, visited, temp, res):
 
-    if  len(temp) == len(nums):
-        res.append(temp[:])
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        self.visited = [False for i in range(n)]
+        curr = []
+        index = 0
+        res = []
+        self.dfs(res, curr, nums)
+        return res
 
-    itr = iter(range(len(nums)))
-    for i in itr:
-        if not visited[i]:
-            temp.append(nums[i])
-            visited[i] = True
-            self.helper(nums, visited, temp, res)
-            # back tracking
-            visited[i] =  False
-            temp.pop()
-            # skip this level and start from the next number
-            while i < len(nums) and nums[i] == nums[i+1]:
-                next(itr)
-                i+=1
+    def dfs(self, res, curr, nums):
+        if len(curr) == len(nums):
+            res.append(curr[:])
 
-
-
+        for i in range(len(nums)):
+            if not self.visited[i]:
+                self.visited[i] = True
+                curr.append(nums[i])
+                self.dfs(res, curr, nums)
+                curr.pop()
+                self.visited[i] = False

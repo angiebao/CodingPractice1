@@ -6,10 +6,12 @@
 # BFS: 空间复杂度 O(4^n) exponential order ，, 时间 O(mn)
 #
 # DFS : 可以降低空间复杂度， 空间复杂度O(mn), 时间复杂度 O(exponential order)， 可以用 pruning
-# 找到最短路径之一(BFS)         this problem
+# 找到最短路径之一(BFS)         this problem , 1091. Shortest Path in Binary Matrix, rotten orange
 # 找到所有最短路径(BFS+DFS) ： world ladder2
 # 找到最短路径的长度(BFS)： word ladder
-# 返回本身  ： 797
+# 返回本身  ： 797. All Paths From Source to Target
+
+#边没有权重： bf， 有权重 dijkstra
 
 
 # public class PathFinder {

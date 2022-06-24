@@ -1,7 +1,6 @@
 # Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 #
 #
-#w54;q[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
 # Example 1:
 #
 # Input: n = 3
